@@ -1,5 +1,7 @@
 "use client"
 
+import { useRef } from 'react';
+import { Editor } from '@tinymce/tinymce-react';
 import { zodResolver } from "@hookform/resolvers/zod"
 import { z } from "zod"
 import { useForm } from "react-hook-form"
@@ -17,6 +19,8 @@ import { Input } from "@/components/ui/input"
 import { QuestionsSchema } from "@/lib/validations"
 
 const Question = () => {
+  const editorRef = useRef(null);
+
  // 1. Define your form.
  const form = useForm<z.infer<typeof QuestionsSchema>>({
     resolver: zodResolver(QuestionsSchema),
@@ -60,7 +64,27 @@ const Question = () => {
             <FormItem className="flex- w-full flex-col gap-3">
               <FormLabel className="paragraph-semibold text-dark400_light800">Detailed explenation of your problem <span className="text-primary-500">*</span></FormLabel>
               <FormControl className="mt-3.5">
-                {/* {TODO: Add an Editor component} */}
+                <Editor
+                  apiKey={process.env.NEXT_PUBLIC_TINY_EDITOR_API_KEY}
+                  licenseKey='gpl'
+                  //@ts-ignore
+                  onInit={(_evt, editor) => {editorRef.current = editor}}
+                  initialValue=''
+                  init={{
+                    height: 350,
+                    menubar: true,
+                    plugins: [
+                      'advlist', 'autolink', 'lists', 'link', 'image', 'charmap',
+                      'anchor', 'searchreplace', 'visualblocks', 'codesample', 'fullscreen',
+                      'insertdatetime', 'media', 'table', 'preview'
+                    ],
+                    toolbar: 'undo redo | blocks | ' +
+                      'codesample | bold italic forecolor | alignleft aligncenter ' +
+                      'alignright alignjustify | bullist numlist outdent indent | ' +
+                      'removeformat',
+                    content_style: 'body { font-family:Inter; font-size:16px }'
+                  }}
+                />
               </FormControl>
               <FormDescription className="body-regular mt-2.5 text-light-500">
                 Introduce the problem and expand on what you put in the title. MInimum 20 characters.
