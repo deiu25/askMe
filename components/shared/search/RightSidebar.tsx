@@ -5,20 +5,20 @@ import RenderTag from '../RenderTag'
 
 
 const hotQuestions = [
-    { _id:1, title: 'How do I use express as a custom server in NextJs?'},
-    { _id:2, title: 'How do I use express as a custom server in NextJs?'},
-    { _id:3, title: 'How do I use express as a custom server in NextJs?'},
-    { _id:4, title: 'How do I use express as a custom server in NextJs?'},
-    { _id:5, title: 'How do I use express as a custom server in NextJs?'},
+    { _id:'1', title: 'How do I use express as a custom server in NextJs?'},
+    { _id:'2', title: 'How do I use express as a custom server in NextJs?'},
+    { _id:'3', title: 'How do I use express as a custom server in NextJs?'},
+    { _id:'4', title: 'How do I use express as a custom server in NextJs?'},
+    { _id:'5', title: 'How do I use express as a custom server in NextJs?'},
 ]
 
 const popularTags = [
-    { _id:1, name: 'javascript', totalQuestions: 11},
-    { _id:2, name: 'react', totalQuestions: 5},
-    { _id:3, name: 'python', totalQuestions: 6},
-    { _id:4, name: 'php', totalQuestions: 2},
-    { _id:5, name: 'nextjs', totalQuestions: 13},
-    { _id:6, name: 'tailwindcss', totalQuestions: 8},
+    { _id:'1', name: 'javascript', totalQuestions: 11},
+    { _id:'2', name: 'react', totalQuestions: 5},
+    { _id:'3', name: 'python', totalQuestions: 6},
+    { _id:'4', name: 'php', totalQuestions: 2},
+    { _id:'5', name: 'nextjs', totalQuestions: 13},
+    { _id:'6', name: 'tailwindcss', totalQuestions: 8},
 ]
 
 const RightSidebar = () => {
