@@ -38,6 +38,7 @@ export default function RootLayout({
               footerActionLink: 'primary-text-gradient hover:text-primary-500'
             }
           }}
+          dynamic
         >
           <ThemeProvider>
             {children}
@@ -45,6 +46,5 @@ export default function RootLayout({
         </ClerkProvider>
       </body>
     </html>
-
   )
 }
